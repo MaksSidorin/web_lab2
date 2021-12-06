@@ -16,9 +16,10 @@ use App\Http\Controllers\ArtistController;
 |
 */
 
-Route::get('/artist', [ArtistController::class, 'index']);
-Route::get('/artist/{id}', [ArtistController::class, 'show']);
+Route::prefix('artist')->group(function () {
+    Route::get('/', [ArtistController::class, 'index']);
+    Route::get('/{id}', [ArtistController::class, 'show']);
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+//Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+//    return $request->user();
 });
