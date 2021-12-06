@@ -1,0 +1,142 @@
+html, body {
+    font-family: 'Yeseva One', cursive;
+    padding: 0;
+    margin: 0;
+    background-color: black;
+}
+
+.container {
+    font-size: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    color: white;
+}
+
+nav ul {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    margin-left: 15px;
+}
+
+.artistsName {
+    padding: 10px;
+    display: flex;  
+    flex-wrap: wrap;
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 100px;
+}
+
+.presentation {
+    margin-top: -250px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    font-size: 35px;
+}
+
+.presentation conertInfo {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    font-size: 20px;
+}
+
+.buyTickets {
+    margin-top: -100px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    color: red;
+    font-size: 25px;
+    margin-bottom: 250px;
+}
+
+.concertName {
+    padding: 100px;
+    display: flex;  
+    justify-content: center;
+    flex-wrap: wrap;
+    font-size: 35px;
+    margin-bottom: 200px;
+}
+
+.concertName scripWidth {
+    width: 1000px;
+}
+
+.concertName bandanaWidth {
+    width: 1000px;
+}
+
+.concertName korzhWidth {
+    width: 1200px;
+}
+
+.concertHeader {
+    padding: 50px;
+    display: flex;  
+    justify-content: center;
+    flex-wrap: wrap;
+    font-size: 40px;
+    font-style: bold;
+}
+
+.artistImage {
+    padding-top: -50px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap
+}
+
+.artistImage img {
+
+    width: 300px;
+    height: 250px;
+}
+
+.concertName padding {
+    padding: 50px
+}
+
+a {
+    color:white !important;
+    text-decoration: none
+  }
+
+   a:hover {
+    color: #CE242B; /* Цвет ссылки при наведении */ 
+    text-decoration: underline; /* Добавляем подчёркивание */
+   }
+
+b {
+    color:blueviolet !important;
+    text-decoration: none
+  }
+
+
+.row {
+    display: flex;
+}
+
+.row-space-between {
+    justify-content: space-between;
+}
+
+footer {
+    background-color: lightgrey;
+    padding: 10px 0;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 25px;
+}

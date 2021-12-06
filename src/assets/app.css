@@ -1,0 +1,120 @@
+html, body {
+    font-family: 'Yeseva One', cursive;
+    padding: 0;
+    margin: 0;
+    background-color: black;
+}
+
+.container {
+    font-size: 20px;
+    max-width: 1130px;
+    margin: 0 auto;
+    color: white;
+}
+
+nav ul {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    margin-left: 15px;
+}
+
+.artistsName {
+    padding: 200px;
+    display: flex;  
+    justify-content: center;
+    flex-wrap: wrap;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.presentation {
+    margin-top: -280px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    font-size: 35px;
+    margin-bottom: 50px;
+}
+
+.presentation albumName {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    font-size: 35px;
+    margin-bottom: 0px;
+}
+
+.buyTickets {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    color: red;
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+
+.artistImage {
+
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap
+}
+
+.artistImage img {
+    width: 300px;
+    height: 250px;
+}
+
+.artistInfo {
+    padding-top: 150px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    font-size: 25px;
+    margin-bottom: 30px;
+}
+
+.authorization {
+    padding-top: 100px;
+    height: auto;
+    width: 1000px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+a {
+    color:white !important;
+    text-decoration: none
+  }
+
+  a:hover {
+    text-decoration: underline; 
+   }
+
+.row {
+    display: flex;
+}
+
+.row-space-between {
+    justify-content: space-between;
+}
+
+footer {
+    background-color: lightgrey;
+    padding: 10px 0;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 25px;
+}
