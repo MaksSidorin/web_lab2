@@ -18,8 +18,11 @@ use App\Http\Controllers\ArtistController;
 
 Route::prefix('artist')->group(function () {
     Route::get('/', [ArtistController::class, 'index']);
-    Route::get('/{id}', [ArtistController::class, 'show']);
-
+    Route::get('/{id}', [ArtistController::class, 'show']); });
+                               
+Route::prefix('profile')->group(function () {
+Route::get('/{personalHash}', [ProfileController::class, 'show']); });
+                               
+Route::post('auth', [ProfileController::class, 'auth']);
 //Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //    return $request->user();
-});

@@ -1,0 +1,259 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Concert API",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/artist": {
+            "get": {
+                "tags": [
+                    "Артист"
+                ],
+                "summary": "Список исполнителей",
+                "description": "Получить список всех исполнителей",
+                "responses": {
+                    "200": {
+                        "description": "Получение списка исполнителей",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "artist": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/components/schemas/Artist"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/artist/{id}": {
+            "get": {
+                "tags": [
+                    "Артист"
+                ],
+                "summary": "Конкретный артист",
+                "description": "Получить конкретного артиста",
+                "responses": {
+                    "200": {
+                        "description": "Получение конкретного артиста",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "artist": {
+                                            "$ref": "#/components/schemas/Artist"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Артист не найден",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "ARTIST_NOT_FOUND"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/profile/{personal_hash}": {
+            "get": {
+                "tags": [
+                    "Профиль"
+                ],
+                "summary": "Получить профиль",
+                "description": "Получить профиль пользователя",
+                "responses": {
+                    "200": {
+                        "description": "Получение профиля",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "profile": {
+                                            "$ref": "#/components/schemas/Profile"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Пользователь не найден",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "USER_NOT_FOUND"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/auth": {
+            "post": {
+                "tags": [
+                    "Авторизация"
+                ],
+                "summary": "Авторизация",
+                "description": "Авторизация",
+                "operationId": "80a516bb52a50aa77bbd5863bf8d22a6",
+                "requestBody": {
+                    "description": "Данные о пользователе",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "name",
+                                    "email"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "Maks"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "example": "maks@mail.ru"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Получение профиля",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "result": {
+                                            "type": "boolean",
+                                            "example": "true"
+                                        },
+                                        "personal_hash": {
+                                            "type": "string",
+                                            "example": "qvde3vf3f4v3vubo5tb5nb03vv02v2v042v0v2jvv3"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Пользователь не найден",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "result": {
+                                            "type": "boolean",
+                                            "example": "false"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Artist": {
+                "required": [
+                    "id",
+                    "name",
+                    "description"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "example": "1"
+                    },
+                    "name": {
+                        "type": "string",
+                        "example": "Dvoreckov"
+                    },
+                    "description": {
+                        "type": "string",
+                        "example": "Певец самородок"
+                    }
+                },
+                "type": "object"
+            },
+            "MyUser": {
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "example": "Maks"
+                    },
+                    "email": {
+                        "type": "string",
+                        "example": "sidorin.maks@mail..ru"
+                    }
+                },
+                "type": "object"
+            },
+            "Profile": {
+                "required": [
+                    "id",
+                    "name",
+                    "email"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "example": "1"
+                    },
+                    "name": {
+                        "type": "string",
+                        "example": "Maks"
+                    },
+                    "email": {
+                        "type": "string",
+                        "example": "myemail@.ru"
+                    }
+                },
+                "type": "object"
+            }
+        }
+    },
+    "security": [
+        []
+    ]
+}
