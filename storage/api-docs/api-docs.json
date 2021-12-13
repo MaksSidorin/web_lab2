@@ -76,7 +76,7 @@
                 }
             }
         },
-        "/profile/{personal_hash}": {
+        "/profile": {
             "get": {
                 "tags": [
                     "Профиль"
@@ -125,7 +125,6 @@
                 ],
                 "summary": "Авторизация",
                 "description": "Авторизация",
-                "operationId": "80a516bb52a50aa77bbd5863bf8d22a6",
                 "requestBody": {
                     "description": "Данные о пользователе",
                     "required": true,
@@ -161,10 +160,6 @@
                                         "result": {
                                             "type": "boolean",
                                             "example": "true"
-                                        },
-                                        "personal_hash": {
-                                            "type": "string",
-                                            "example": "qvde3vf3f4v3vubo5tb5nb03vv02v2v042v0v2jvv3"
                                         }
                                     },
                                     "type": "object"

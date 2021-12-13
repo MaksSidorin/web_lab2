@@ -5,6 +5,7 @@ import Auth from '../views/Auth.vue'
 import Scrip from '../views/Scrip.vue'
 import Bandana from '../views/Bandana.vue'
 import Korzh from '../views/Korzh.vue'
+import NotFound from '../views/NotFound.vue'
 
 Vue.use(VueRouter)
 
@@ -12,14 +13,19 @@ const routes = [
 
   {
     path: '/',
-    name: 'Home',
+    name: 'Auth',
+    component: Auth
+  },
+  {
+    path: '/home',
+    name: "Home",
     component: Home
   },
-   {
-     path: '/auth',
-     name: "Auth",
-     component: Auth
-   },
+  {
+    path: '/not_found',
+    name: "NotFound",
+    component: NotFound
+  },
    {
     path: '/scrip',
     name: "Scrip",

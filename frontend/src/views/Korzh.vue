@@ -25,8 +25,8 @@
             </div>
         </section>
 
-                <section v-for="item in artistInfo" :key="item" class="artistInfo">
-            <ArtistInfo :artistInfo="item"></ArtistInfo>
+                <section v-for="item in artist" :key="item" class="artistInfo">
+            <Artist :artist="item"></Artist>
         </section>  
 
    
@@ -36,24 +36,25 @@
     </template>
 
 <script>
-import ArtistInfo from "../components/ArtistInfo.vue";
+import Artist from "../components/ArtistInfo.vue";
 export default {
   name: 'Bandana',
-  components: {ArtistInfo},
+  components: {Artist},
   data() {
     return {
-      artistInfo: [
+      artist: [
       {
         img_url_1: "Korzh1.jpg",
         img_url_2: "Korzh2.jpg",
         img_url_3: "Korzh3.jpg",
-        description: "Макс Корж — молодой, энергичный и талантливый исполнитель из Беларуси, собирающий крупнейшие концертные площадки по всему миру. \
-            Его песни — это некий гибрид клубного и дворового жанров. При этом на выходе «рождаются» 100-процентные хиты. Он говорит, что музыка — это его все. \
-            Популярность рэпера зашкаливает, что не мешает \
-            Максу ломать стереотипы восприятия современной музыки и устраивать на сцене настоящий домашний «флэт»."
+        description: null
       }
       ]
     }
+  },
+  created() {
+    this.$http.get('/artist/4')
+      .then(response => this.artist[0].description = response.data.description)   
   }
 }
 </script>

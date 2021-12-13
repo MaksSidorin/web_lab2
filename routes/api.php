@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Models\Artist;
 use App\Http\Controllers\ArtistController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,8 +22,8 @@ Route::prefix('artist')->group(function () {
     Route::get('/{id}', [ArtistController::class, 'show']); });
                                
 Route::prefix('profile')->group(function () {
-Route::get('/{personalHash}', [ProfileController::class, 'show']); });
+Route::get('/', [UserController::class, 'show']); });
                                
-Route::post('auth', [ProfileController::class, 'auth']);
+Route::post('auth', [UserController::class, 'auth']);
 //Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //    return $request->user();

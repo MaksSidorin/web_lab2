@@ -4,29 +4,63 @@
     <header class="container">
     </header>
     <main class="container">
-        <form action="/action_page.php">
-           
+    
             <section class="authorization">
                 <label for="fname">Ваш логин:</label>
-                <input type="text" id="fname" name="fname"><br><br>
+                <input ref="name" >
             </section>
 
             <section class="authorization">
-            <label for="lname">Пароль:</label>
-            <input type="text" id="lname" name="lname"><br><br>
+            <label for="lname">Почта:</label>
+           <input ref="email" >
             </section>
            
-
             <section class="authorization">
-            <input type="submit" value="Ввойти">
+            <button v-on:click="auth()">Продолжить</button>
             </section>
-
-          </form>
 
     </main>
 </body>
  </div>
 </template>
+
+<script>
+export default {
+  name: 'Auth',
+  data() {
+    return {
+      inputs: [
+        {
+            hint: "Имя"
+        },
+        {
+            hint: "почта"
+        }
+      ],
+      name: null,
+      email: null,
+    }
+  },
+  methods: {
+    auth() {
+      this.name = this.$refs.name.value
+      this.email = this.$refs.email.value
+      const request = {
+        name: this.name,
+        email: this.email
+      }
+      let self = this
+      this.$http.post('/auth', request)
+        .then(function(response) {
+           self.$router.push({name: 'Home'} )
+        },
+        function(response) {
+          self.$router.push( {name: 'NotFound'} )
+        })
+    },
+  }
+}
+</script>
 
 <style>
 

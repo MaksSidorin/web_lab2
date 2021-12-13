@@ -8,7 +8,7 @@ use App\Models\UserInfo;
 
 /**
  * @OA\GET(
- * path="/profile/{personal_hash}",
+ * path="/profile",
  * summary="Получить профиль",
  * description="Получить профиль пользователя",
  * tags={"Профиль"},
@@ -49,7 +49,6 @@ use App\Models\UserInfo;
  *    description="Получение профиля",
  *    @OA\JsonContent(
  *        @OA\Property(property="result", type="boolean", example="true"),
- *        @OA\Property(property="personal_hash", type="string", example="qvde3vf3f4v3vubo5tb5nb03vv02v2v042v0v2jvv3"),
  *     )
  *    ),
  * @OA\Response(
@@ -61,13 +60,13 @@ use App\Models\UserInfo;
  *    )
  * )
 */
-
-public function show(String $personalHash) {
+class UserController extends Controller {
+public function show(String $name) {
         $profiles = UserInfo::all();
         $result = null;
 
         foreach ($profiles as $profile) {
-            if (hash("sha256", $profile->name) == $personalHash) {
+            if (($profile->name) == $name) {
                 $result = $profile;
             }
         }
@@ -88,10 +87,11 @@ public function show(String $personalHash) {
             ->first();
 
         if ($profile === null) {
-            return response(['result' => false], 403);
+            return response()->json(['result' => false], 403);
         }
 
-        return response(['result' => true, 'personal_hash' => hash('sha256', $profile->name)], 200);
+        return response()->json(['result' => true, ], 200);
     }
 }
+
 

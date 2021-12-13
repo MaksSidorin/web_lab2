@@ -12,9 +12,9 @@
         <section class="presentation">
             <div>
                 Большой сольный концерт 
-                   <conertInfo>
+                   <concertInfo>
                       Мегаспорт. 14 ноября 2021 в 19:00
-                </conertInfo>
+                </concertInfo>
                     
             </div>
         </section>
@@ -25,8 +25,8 @@
             </div>
         </section>
 
-                <section v-for="item in artistInfo" :key="item" class="artistInfo">
-            <ArtistInfo :artistInfo="item"></ArtistInfo>
+                <section v-for="item in artist" :key="item" class="artistInfo">
+            <Artist :artist="item"></Artist>
         </section>  
 
    
@@ -36,27 +36,28 @@
     </template>
 
 <script>
-import ArtistInfo from "../components/ArtistInfo.vue";
+import Artist from "../components/ArtistInfo.vue";
 export default {
   name: 'Bandana',
-  components: {ArtistInfo},
+  components: {Artist},
   data() {
     return {
-      artistInfo: [
+      artist: [
       {
         img_url_1: "Scrip1.jpg",
         img_url_2: "Scrip2.jpg",
         img_url_3: "Scrip3.png",
-        description: "Скриптонит - рэпер с казахскими корнями приобрел известность на родине еще в юности, \
-         а к 26 годам стал открытием в российской музыке \
-         Будучи на вершине успеха, исполнитель решил сделать перерыв \
-            в сольном творчестве, но реализовал талант в группе и коллаборациях с другими известными музыкантами. \
-          Исполнитель и музыкальный продюсер, основатель лейбла Musica36."
+        description: null
       }
       ]
     }
+  },
+  created() {
+    this.$http.get('/artist/3')
+      .then(response => this.artist[0].description = response.data.description)   
   }
 }
+
 </script>
 
 <style>

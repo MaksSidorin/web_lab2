@@ -13,13 +13,6 @@
     <header class="container">
         <div>
         </div>
-        <nav>
-            <ul>
-                 <router-link :to="{name: 'Auth'}">Авторизация</router-link>
-                <li>Каталог</li>
-                <li>Контакты</li>
-            </ul>
-        </nav>
     </header>
   
     <router-view/>
